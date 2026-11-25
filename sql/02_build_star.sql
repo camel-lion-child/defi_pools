@@ -1,7 +1,6 @@
 -- STAR SCHEMA Gold for the ONE business question:
 -- Which DeFi pools balance yield (APY) and liquidity (TVL) by chain/project?
--- Source: bronze.yield_pools_snapshots. Run only after the Bronze checks.
--- Bronze is NOT modified or deleted.
+-- Source: bronze.yield_pools_snapshots. 
 
 SELECT current_database(); -- Must return defi_pools
 CREATE SCHEMA IF NOT EXISTS silver;

@@ -19,7 +19,7 @@ from sqlalchemy.types import Text
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-load_dotenv(ROOT / ".env")
+load_dotenv(ROOT / ".env", override=True)
 
 import os
 
