@@ -2,12 +2,11 @@
 -- Which DeFi pools balance yield (APY) and liquidity (TVL) by chain/project?
 -- Source: bronze.yield_pools_snapshots. 
 
-SELECT current_database(); -- Must return defi_pools
+SELECT current_database(); 
 CREATE SCHEMA IF NOT EXISTS silver;
 CREATE SCHEMA IF NOT EXISTS gold;
 
--- Source attributes such as il_risk, stablecoin and protocol category are NOT
--- assumed here: they were not visible in the source screenshot.
+-- Source attributes such as il_risk, stablecoin and protocol category are NOT assumed here: they were not visible in the source screenshot.
 -- Cast numeric values safely; invalid values become NULL for review.
 CREATE OR REPLACE VIEW silver.yield_pools_clean AS
 SELECT
@@ -44,7 +43,7 @@ BEGIN
     END IF;
 END $$;
 
--- IMPORTANT: re-running this script recreates ONLY Gold model tables.
+-- Re-running this script recreates ONLY Gold model tables.
 DROP TABLE IF EXISTS gold.fact_yield_daily;
 DROP TABLE IF EXISTS gold.dim_date;
 DROP TABLE IF EXISTS gold.dim_chain;
