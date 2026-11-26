@@ -51,7 +51,7 @@ Le modèle décisionnel est centré sur la table de faits `gold.fact_yield_daily
 flowchart TB
     D["dim_date<br/>PK date_key"] -->|"1:N"| F["fact_yield_daily<br/>PK date_key + pool_key<br/>FK date_key, chain_key,<br/>project_key, pool_key<br/>TVL, APY, APY base, APY reward"]
     C["dim_chain<br/>PK chain_key"] -->|"1:N"| F
-    P["dim_project<br/>PK project_key"] -->|"1:N"| F
+    P["dim_protocol<br/>PK project_key"] -->|"1:N"| F
     L["dim_pool<br/>PK pool_key"] -->|"1:N"| F
 ```
 
@@ -59,7 +59,7 @@ flowchart TB
 |---|---|
 | `dim_date` | Date d'observation, année, mois, jour. |
 | `dim_chain` | Blockchain. |
-| `dim_project` | Projet / protocole référencé dans les données de pools. |
+| `dim_protocol` | Projet / protocole référencé dans les données de pools. |
 | `dim_pool` | Identifiant du pool et symbole. |
 | `fact_yield_daily` | Mesures de liquidité (`tvl_usd`) et de rendement (`apy`, `apy_base`, `apy_reward`). |
 
