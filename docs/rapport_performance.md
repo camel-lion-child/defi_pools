@@ -26,7 +26,7 @@ charge machine) : la comparaison est indicative, non un benchmark scientifique.
 
 | Requête | Avant (médiane, ms) | Après (médiane, ms) | Réduction du temps | Accélération |
 |---|---:|---:|---:|---:|
-| Q1 | 1371.604 | 0.038 | +100.0 % | 36094.84× |
+| Q1 | 1371.604 | 0.038 | +99.997 % | 36094.84× |
 | Q2 | 1231.131 | 14.177 | +98.8 % | 86.84× |
 | Q3 | 1283.701 | 8.198 | +99.4 % | 156.59× |
 
@@ -44,13 +44,13 @@ Principaux nœuds rencontrés (parcours récursif du plan de la troisième mesur
 - **Q3 (before)** : Sort, Aggregate, Gather Merge, Aggregate, Sort, Hash Join, Seq Scan, Hash, Seq Scan
 - **Q3 (after)** : Sort, Aggregate, Hash Join, Index Only Scan (idx_bench_bucket_project), Hash, Seq Scan
 
-### Interprétation à compléter après lecture des plans
+### Interprétation des résultats
 
-- **Q1 — classement TVL pour un bucket :** comparer `Seq Scan`, `Index Scan` / `Bitmap Heap Scan`, et `Sort` / `Limit`.
-- **Q2 — agrégat par chaîne sur un cycle :** vérifier le filtrage, la jointure vers `dim_chain` et l'agrégation.
-- **Q3 — agrégat par protocole sur des buckets :** comparer les accès aux lignes et les jointures vers `dim_project`.
-- Dans chaque plan, relever `Actual Rows`, `Rows Removed by Filter`, `Shared Hit Blocks` et `Shared Read Blocks`.
-- Indiquer explicitement si les index sont utilisés et pourquoi une requête a progressé ou régressé.
+- **Q1 :** Le `Seq Scan` est remplacé par un `Index Scan` (`idx_bench_bucket_tvl`). L'index évite le parcours complet et le tri de 10 millions de lignes. Le temps diminue de **99,997 %**.
+- **Q2 :** L'`Index Only Scan` (`idx_bench_cycle_chain`) accélère le filtrage et l'agrégation par blockchain. Le temps diminue de **98,85 %**.
+- **Q3 :** L'`Index Only Scan` (`idx_bench_bucket_project`) optimise la sélection et l'agrégation par protocole. Le temps diminue de **99,36 %**.
+
+**Conclusion :** Les index réduisent fortement les temps d'exécution en évitant les parcours séquentiels coûteux. Toutefois, les résultats peuvent aussi être influencés par le cache et les conditions d'exécution.
 
 ## Index testés
 
