@@ -1,0 +1,30 @@
+
+version: 2
+
+models:
+  - name: stg_bronze__yield_pools_snapshots
+    description: >
+      Données des pools DeFi issues de Bronze,
+      avec nettoyage des textes et conversion
+      des dates, APY et TVL.
+
+    columns:
+      - name: snapshot_date
+        description: "Date de l'observation."
+        data_tests:
+          - not_null
+
+      - name: pool_id
+        description: "Identifiant du pool DeFi."
+        data_tests:
+          - not_null
+
+      - name: tvl_usd
+        description: "Valeur totale verrouillée en USD."
+        data_tests:
+          - not_null
+
+      - name: apy
+        description: "Rendement annualisé indicatif."
+        data_tests:
+          - not_null

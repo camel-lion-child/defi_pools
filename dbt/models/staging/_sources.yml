@@ -1,0 +1,22 @@
+
+version: 2
+
+sources:
+  - name: bronze
+    database: defi_pools
+    schema: bronze
+    description: "Données brutes DeFi importées dans PostgreSQL."
+
+    tables:
+      - name: chain_tvl_history
+      - name: chains_latest
+      - name: chains_snapshots
+      - name: defi_tvl_history
+      - name: dex_fees_history
+      - name: protocols_latest
+      - name: protocols_snapshots
+      - name: stablecoin_supply_history
+      - name: stablecoins_latest
+      - name: stablecoins_snapshots
+      - name: yield_pools_latest
+      - name: yield_pools_snapshots

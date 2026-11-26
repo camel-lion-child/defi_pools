@@ -6,3 +6,16 @@ __pycache__/
 data/*
 !data/.gitkeep
 .env.save
+
+# dbt generated files
+**/target/
+**/logs/
+**/dbt_packages/
+
+# Local environment and secrets
+**/.venv/
+**/.env
+**/profiles.yml
+
+# macOS
+.DS_Store
