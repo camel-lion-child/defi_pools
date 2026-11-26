@@ -1,0 +1,10 @@
+phase,query,run,execution_ms,planning_ms,plan_root,plan_file
+before,Q1,1,1177.138,1.735,Limit,docs/plan_before_Q1_run1.json
+before,Q1,2,1579.133,0.048,Limit,docs/plan_before_Q1_run2.json
+before,Q1,3,1371.604,0.229,Limit,docs/plan_before_Q1_run3.json
+before,Q2,1,1231.131,4.323,Sort,docs/plan_before_Q2_run1.json
+before,Q2,2,1223.177,0.172,Sort,docs/plan_before_Q2_run2.json
+before,Q2,3,1392.759,0.099,Sort,docs/plan_before_Q2_run3.json
+before,Q3,1,1414.799,2.155,Sort,docs/plan_before_Q3_run1.json
+before,Q3,2,1283.701,0.432,Sort,docs/plan_before_Q3_run2.json
+before,Q3,3,1247.397,0.178,Sort,docs/plan_before_Q3_run3.json
