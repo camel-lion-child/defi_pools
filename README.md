@@ -1,6 +1,6 @@
 # DeFi Pools — SQL & Modélisation en étoile
 
-Projet personnel sur PostgreSQL, à partir de fichiers CSV et Parquet issus du dataset DeFi Daily (Kaggle, source originale DefiLlama). Le code est versionné sur GitHub sans cloner d'ancien dépôt.
+Projet personnel sur PostgreSQL, à partir de fichiers CSV et Parquet issus du dataset DeFi Daily (Dataset Kaggle : https://www.kaggle.com/datasets/danielaijdkx/defi-daily-tvl-stablecoins-dex-yields, source originale DefiLlama). Le code est versionné sur GitHub sans cloner d'ancien dépôt.
 
 **Question métier :** « Quels pools DeFi présentent le meilleur compromis entre rendement (APY), liquidité (TVL) et indicateurs de risque, selon les blockchains et les protocoles ? »
 
